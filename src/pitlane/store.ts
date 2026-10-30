@@ -112,7 +112,7 @@ export const usePitlane = create<PitlaneState>()(
         const next: PlanItem = { ...item, status: "planned", addedAt: Date.now() };
         set({
           plan: { ...get().plan, [item.key]: next },
-          log: pushLog(get().log, `Added \u201c${item.title}\u201d. Nothing on the PC changed.`),
+          log: pushLog(get().log, `Added “${item.title}”. Nothing on the PC changed.`),
           notice: "Added to the plan. Nothing on this computer changed.",
         });
       },
@@ -121,7 +121,7 @@ export const usePitlane = create<PitlaneState>()(
         if (!item) return;
         set({
           plan: { ...get().plan, [key]: { ...item, status: "done", doneAt: Date.now() } },
-          log: pushLog(get().log, `Marked \u201c${item.title}\u201d done on your PC.`),
+          log: pushLog(get().log, `Marked “${item.title}” done on your PC.`),
           notice: "Marked done. Pitlane only recorded your word.",
         });
       },
@@ -130,7 +130,7 @@ export const usePitlane = create<PitlaneState>()(
         if (!item) return;
         set({
           plan: { ...get().plan, [key]: { ...item, status: "planned", doneAt: undefined } },
-          log: pushLog(get().log, `Moved \u201c${item.title}\u201d back to not done.`),
+          log: pushLog(get().log, `Moved “${item.title}” back to not done.`),
           notice: "Back on the to-do list. Windows settings you already changed stay changed until you undo them there.",
         });
       },
@@ -141,7 +141,7 @@ export const usePitlane = create<PitlaneState>()(
         delete plan[key];
         set({
           plan,
-          log: pushLog(get().log, `Removed \u201c${item.title}\u201d from the plan.`),
+          log: pushLog(get().log, `Removed “${item.title}” from the plan.`),
           notice: "Removed from the plan. If you already changed the PC, use the undo steps you saw on the card.",
         });
       },
@@ -173,7 +173,7 @@ export const usePitlane = create<PitlaneState>()(
           temps: { cpu: "", gpu: "" },
           customs: [],
           log: pushLog([], "Cleared the Pitlane plan stored in this browser."),
-          notice: "Pitlane\u2019s notes in this browser were cleared. The PC was not changed.",
+          notice: "Pitlane’s notes in this browser were cleared. The PC was not changed.",
         }),
       dismissNotice: () => set({ notice: null }),
     }),
