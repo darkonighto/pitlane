@@ -42,7 +42,7 @@ export function Bay({ onOpen }: { onOpen: (view: ViewId) => void }) {
       <p className="text-xs font-medium tracking-wide text-subtle uppercase">Session</p>
       <h1 className="mt-1 text-2xl font-semibold tracking-tight text-fg">{current.line}</h1>
       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-        Pitlane prepares a plan you approve. It cannot see your process list, your temperatures, or a game\u2019s frame rate, and it will not change Windows for you.
+        Pitlane prepares a plan you approve. It cannot see your process list, your temperatures, or a game’s frame rate, and it will not change Windows for you.
       </p>
 
       <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label="Session intent">
@@ -94,11 +94,11 @@ export function Bay({ onOpen }: { onOpen: (view: ViewId) => void }) {
           <h2 className="text-base font-semibold">This browser tab</h2>
           <p className="mt-1 text-xs text-subtle">Frame pacing of Pitlane itself. Not your game.</p>
           <p className="mt-3 font-mono text-2xl font-medium tabular-nums text-fg">
-            {snap?.fps ?? "\u2014"}
+            {snap?.fps ?? "—"}
             <span className="ml-2 text-sm text-muted">fps</span>
           </p>
           <p className="font-mono text-xs tabular-nums text-subtle">
-            {snap?.frameMs ? `${snap.frameMs.toFixed(1)} ms frame` : "Measuring\u2026"}
+            {snap?.frameMs ? `${snap.frameMs.toFixed(1)} ms frame` : "Measuring…"}
           </p>
           {snap && snap.samples.length > 2 ? (
             <Suspense fallback={<div className="h-24" />}>
@@ -111,18 +111,18 @@ export function Bay({ onOpen }: { onOpen: (view: ViewId) => void }) {
       </section>
 
       <section className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <Signal label="CPU threads" value={snap ? String(snap.cores || "\u2014") : "\u2026"} detail="Reported by the browser. Not a model name, not a load." />
+        <Signal label="CPU threads" value={snap ? String(snap.cores || "—") : "…"} detail="Reported by the browser. Not a model name, not a load." />
         <Signal label="Memory hint" value={snap?.deviceMemory ? `${snap.deviceMemory} GB` : "Hidden"} detail="Some browsers refuse this. It is a bucket, not a reading from Task Manager." />
         <Signal label="GPU string" value={snap?.gpu ?? "Hidden"} detail="The graphics device this tab is using. Laptops may show the integrated chip." />
-        <Signal label="Display" value={snap ? snap.screen : "\u2026"} detail={snap ? `Pixel ratio ${snap.dpr}` : "Screen size, not refresh rate."} />
+        <Signal label="Display" value={snap ? snap.screen : "…"} detail={snap ? `Pixel ratio ${snap.dpr}` : "Screen size, not refresh rate."} />
       </section>
 
       <section className="mt-6">
         <h2 className="text-base font-semibold">Not measured</h2>
         <div className="mt-3 grid gap-3 md:grid-cols-3">
-          <Note>GPU load, clocks, and game FPS are invisible to a website. Use the game\u2019s counter or the vendor overlay if you want those.</Note>
+          <Note>GPU load, clocks, and game FPS are invisible to a website. Use the game’s counter or the vendor overlay if you want those.</Note>
           <Note>Temperatures are not available. If you read one in a hardware monitor, you can jot it on Machine. Pitlane will label it as your note.</Note>
-          <Note>Process lists stay on the PC. The Review desk is a catalog you confirm, so nothing is \u201cdetected\u201d by accident.</Note>
+          <Note>Process lists stay on the PC. The Review desk is a catalog you confirm, so nothing is “detected” by accident.</Note>
         </div>
       </section>
 

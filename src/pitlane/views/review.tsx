@@ -161,7 +161,7 @@ function ProcessCard({
             {item.protected ? <SafetyBadge safety="protected" /> : <ImpactLabel impact={item.typicalImpact} />}
           </div>
           <p className="mt-1 text-xs text-subtle">
-            {item.vendor} \u00b7 {item.category}
+            {item.vendor} · {item.category}
           </p>
         </div>
         <label className="inline-flex min-h-11 items-center gap-2 text-sm text-fg">
